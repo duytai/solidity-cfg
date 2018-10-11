@@ -34,7 +34,6 @@ class Predicate {
         throw new Error(`Dont know operator ${this.operator}`)
       }
     }
-    console.log(distance)
     return 1 - (1.001 ** (-distance))
   }
 }
