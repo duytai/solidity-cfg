@@ -1,6 +1,8 @@
 const BN = require('bn.js')
 
 const MAX_DISTANCE = new BN(100)
+const MIN_DISTANCE = 1
+
 class Predicate {
   constructor(params) {
     const {
@@ -25,13 +27,14 @@ class Predicate {
       case 'EQ': {
         const tempVal = this.left.sub(this.right)
         distance = tempVal.gte(MAX_DISTANCE) ? MAX_DISTANCE : tempVal.mod(MAX_DISTANCE)
-        distance = Math.abs(distance.toNumber())
+        distance = Math.abs(distance.toNumber()) + MIN_DISTANCE
         break
       }
       default: {
         throw new Error(`Dont know operator ${this.operator}`)
       }
     }
+    console.log(distance)
     return 1 - (1.001 ** (-distance))
   }
 }

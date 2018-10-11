@@ -15,11 +15,11 @@ it('bnb', () => {
   expect(node).toEqual(360)
   const ops = ['GT', 'SGT', 'LT', 'SLT', 'EQ']
   const values = [
-    2.019791531187325,
-    2.019791531187325,
-    2.019791531187325,
-    2.019791531187325,
-    2.019791531187325,
+    2.020770760426898,
+    2.020770760426898,
+    2.020770760426898,
+    2.020770760426898,
+    2.020770760426898,
   ]
   // string
   const brd = new Predicate({
@@ -28,7 +28,7 @@ it('bnb', () => {
     operator: 'EQ',
     pc: 1000,
   }).branchDistance()
-  expect(brd).toEqual(0)
+  expect(brd).toEqual(0.0009990009990008542)
   ops.forEach((op, index) => {
     cfg.predicates[360] = new Predicate({
       left: new BN(20),
