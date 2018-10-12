@@ -6,12 +6,14 @@ class CFG {
     this.compactTree = compactTree
     // nodename -> predicate
     this.predicates = {}
-    // nodename ->  {count: <num>, fp: <chrom_fingerprint>}
+    // nodename -> count
     this.covered = {}
     // catch all posible branch paths for later use
     this.allPaths = this.findAllPaths()
     // save all covered branches
     this.branches = {}
+    // save all errors: map<error_name, count>
+    this.errors = {}
   }
 
   isBranchByName(nodeName) {
